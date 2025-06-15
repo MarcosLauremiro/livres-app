@@ -25,6 +25,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { Badge } from "../ui/badge";
+import Link from "next/link";
 
 const FadeInSection = ({
   children,
@@ -391,9 +392,9 @@ export function HomeSection() {
             <Button
               size="lg"
               className="bg-white/20 hover:bg-white/30 text-white border-white/30 px-8 py-4 text-lg font-medium"
-              onClick={() => scrollToSection("about")}
             >
-              Saiba Mais
+              <Link href={"/register"}>Inscreva-se Agora</Link>
+
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </motion.div>
@@ -429,7 +430,7 @@ export function HomeSection() {
                 className="bg-white rounded-xl p-8 shadow-lg"
               >
                 <div className="text-4xl font-bold text-orange-500 mb-2">
-                  <AnimatedCounter end={500} />+
+                  <AnimatedCounter end={200} />+
                 </div>
                 <p className="text-gray-600 font-medium">Participantes</p>
               </motion.div>
@@ -438,7 +439,7 @@ export function HomeSection() {
                 className="bg-white rounded-xl p-8 shadow-lg"
               >
                 <div className="text-4xl font-bold text-orange-500 mb-2">
-                  <AnimatedCounter end={15} />
+                  <AnimatedCounter end={3} />
                 </div>
                 <p className="text-gray-600 font-medium">Palestrantes</p>
               </motion.div>
@@ -510,7 +511,7 @@ export function HomeSection() {
                 {
                   icon: Users,
                   title: "Participantes",
-                  content: "Jovens de 16 a 30 anos",
+                  content: "Jovens de 12 a 60 anos",
                   description:
                     "Capacidade limitada para garantir uma experiência personalizada.",
                 },
@@ -552,13 +553,13 @@ export function HomeSection() {
                         icon: Mic,
                         title: "Palestras Inspiradoras",
                         description:
-                          "Speakers renomados compartilhando experiências sobre identidade, propósito e missão.",
+                          "Oradores renomados compartilhando experiências sobre identidade, propósito e missão.",
                       },
                       {
                         icon: Target,
                         title: "Workshops Práticos",
                         description:
-                          "Atividades hands-on para descobrir seus talentos e desenvolver habilidades práticas.",
+                          "Atividades praticas para descobrir seus talentos e desenvolver habilidades práticas.",
                       },
                       {
                         icon: Network,
@@ -831,7 +832,7 @@ export function HomeSection() {
                 size="lg"
                 className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 text-lg font-bold"
               >
-                Inscreva-se Agora
+                <Link href={"/register"}>Inscreva-se Agora</Link>
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </motion.div>
@@ -952,13 +953,13 @@ export function HomeSection() {
                           Endereço
                         </h4>
                         <p className="text-gray-600">
-                          Centro de Convenções Livres
+                          Primeira Igreja batista de Imperatriz
                           <br />
-                          Rua das Conferências, 123
+                          Rua Hermes da Fonseca, 30
                           <br />
-                          Centro - São Paulo, SP
+                          Centro - Imperatriz, MA
                           <br />
-                          CEP: 01234-567
+                          CEP: 65900-600
                         </p>
                       </div>
                     </div>
@@ -969,9 +970,9 @@ export function HomeSection() {
                           Facilidades
                         </h4>
                         <p className="text-gray-600">
-                          Auditório climatizado, coffee break, área de
-                          networking, estacionamento gratuito e acesso para
-                          pessoas com deficiência.
+                          Templo climatizado, coffee break, área de networking,
+                          estacionamento gratuito e acesso para pessoas com
+                          deficiência.
                         </p>
                       </div>
                     </div>
@@ -988,7 +989,9 @@ export function HomeSection() {
                 <div className="text-center text-gray-500">
                   <MapPin size={48} className="mx-auto mb-4" />
                   <p className="text-lg font-medium">Mapa do Local</p>
-                  <p className="text-sm">Centro de Convenções Livres</p>
+                  <p className="text-sm">
+                    Primeira Igreja batista de Imperatriz
+                  </p>
                 </div>
               </motion.div>
             </div>
