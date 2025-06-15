@@ -1,8 +1,9 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 
-export default function ConfirmationPage() {
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState, Suspense } from "react";
+
+function ConfirmationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<"success" | "error" | "loading">(
@@ -21,7 +22,6 @@ export default function ConfirmationPage() {
       setStatus("error");
       setMessage(messageParam || "Ocorreu um erro no cadastro.");
     } else {
-      // Se não tem parâmetros, redireciona para o início
       router.push("/");
     }
   }, [searchParams, router]);
@@ -46,7 +46,6 @@ export default function ConfirmationPage() {
     <div className="min-h-screen bg-gradient-to-br from-orange-500 to-red-500 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          {/* Header */}
           <div className="bg-gradient-to-r from-orange-500 to-red-500 px-8 py-6">
             <h2 className="text-3xl font-bold text-white text-center">
               {status === "success" ? "Sucesso!" : "Ops!"}
@@ -59,7 +58,6 @@ export default function ConfirmationPage() {
           </div>
 
           <div className="px-8 py-8 text-center">
-            {/* Ícone */}
             <div className="mb-6">
               {status === "success" ? (
                 <div className="w-20 h-20 mx-auto bg-green-100 rounded-full flex items-center justify-center">
@@ -96,7 +94,6 @@ export default function ConfirmationPage() {
               )}
             </div>
 
-            {/* Mensagem */}
             <div className="mb-8">
               <h3
                 className={`text-xl font-semibold mb-3 ${
@@ -120,7 +117,6 @@ export default function ConfirmationPage() {
               )}
             </div>
 
-            {/* Botões */}
             <div className="space-y-3">
               {status === "success" ? (
                 <button
@@ -147,7 +143,6 @@ export default function ConfirmationPage() {
               )}
             </div>
 
-            {/* Footer info */}
             <div className="mt-8 pt-6 border-t border-gray-200">
               <p className="text-xs text-gray-500">
                 {status === "success"
@@ -159,5 +154,19 @@ export default function ConfirmationPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ConfirmationPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+        </div>
+      }
+    >
+      <ConfirmationContent />
+    </Suspense>
   );
 }
