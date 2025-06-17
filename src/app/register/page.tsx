@@ -57,9 +57,6 @@ export default function RegisterPage() {
         errorMessage = error.message;
       }
       toast.error("Erro ao realizar o cadastro: " + errorMessage);
-      router.push(
-        `/confirmation?status=error&message=${encodeURIComponent(errorMessage)}`
-      );
     } finally {
       setLoading(false);
     }
@@ -222,19 +219,21 @@ export default function RegisterPage() {
               {/* Checkboxes */}
               <div className="space-y-3 pt-2">
                 <label className="flex items-center cursor-pointer group">
-                  <input
-                    name="hosting"
-                    type="checkbox"
-                    checked={form.hosting}
-                    onChange={handleChange}
-                    className="w-5 h-5 text-orange-500 border-2 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
-                  />
-                  <span className="ml-3 text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
-                    Precisa de hospedagem?
-                    {
-                      "(Exclusivo para participantes de fora de Imperatriz. Alimentação não inclusa.)"
-                    }
-                  </span>
+                  <div className="flex items-start">
+                    <input
+                      name="hosting"
+                      type="checkbox"
+                      checked={form.hosting}
+                      onChange={handleChange}
+                      className="w-5 h-5 text-orange-500 border-2 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
+                    />
+                    <span className="ml-3 text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                      Precisa de hospedagem?
+                      {
+                        "(Exclusivo para participantes de fora de Imperatriz. Alimentação não inclusa.)"
+                      }
+                    </span>
+                  </div>
                 </label>
 
                 <label className="flex flex-col cursor-pointer group">
