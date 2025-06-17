@@ -125,7 +125,6 @@ export default function RegisterPage() {
                   <option value="">Selecione o gênero</option>
                   <option value="masculino">Masculino</option>
                   <option value="feminino">Feminino</option>
-                  <option value="outro">Outro</option>
                 </select>
               </div>
 
