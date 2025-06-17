@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Badge } from "../ui/badge";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const FadeInSection = ({
   children,
@@ -143,7 +144,11 @@ export function HomeSection() {
     {
       day: "Sexta-feira - 15/08",
       events: [
-        { time: "19:00", title: "Abertura Oficial", speaker: "Equipe Livres" },
+        {
+          time: "19:00",
+          title: "Abertura Oficial e Credenciamento",
+          speaker: "Equipe Livres",
+        },
         {
           time: "19:30",
           title: "Palestra: Descobrindo Sua Identidade",
@@ -247,8 +252,6 @@ export function HomeSection() {
                     ? "Sobre"
                     : item === "speakers"
                     ? "Palestrantes"
-                    : item === "schedule"
-                    ? "Agenda"
                     : item === "testimonials"
                     ? "Depoimentos"
                     : "Contato"}
@@ -313,8 +316,6 @@ export function HomeSection() {
                     ? "Sobre"
                     : item === "speakers"
                     ? "Palestrantes"
-                    : item === "schedule"
-                    ? "Agenda"
                     : item === "testimonials"
                     ? "Depoimentos"
                     : "Contato"}
@@ -325,7 +326,6 @@ export function HomeSection() {
         </div>
       </motion.header>
 
-      {/* Hero Section */}
       <section
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
@@ -498,20 +498,20 @@ export function HomeSection() {
                   title: "Data e Duração",
                   content: "15 a 17 de Agosto de 2025",
                   description:
-                    "Três dias intensivos de conteúdo, networking e transformação pessoal.",
+                    "Três dias para mergulhar no extraordinário de Deus para transformar a sua vida.",
                 },
                 {
                   icon: Clock,
                   title: "Horários",
                   content:
-                    "Manhã: 09:00 - 12:00\nTarde: 14:00 - 17:00\nNoite: 19:00 - 21:00",
+                    "Sexta: 19:30\nSábado: 9:00 - 15:00 - 19:30\nDomingo: 9:00",
                   description:
                     "Programação completa com palestras, workshops e atividades práticas.",
                 },
                 {
                   icon: Users,
                   title: "Participantes",
-                  content: "Jovens de 12 a 60 anos",
+                  content: "Adolescentes e jovens",
                   description:
                     "Capacidade limitada para garantir uma experiência personalizada.",
                 },
@@ -660,79 +660,6 @@ export function HomeSection() {
                       {speaker.topic}
                     </p>
                     <p className="text-gray-500 text-sm">{speaker.bio}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      {/* Schedule Section */}
-      <FadeInSection>
-        <section id="schedule" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-5xl font-bold text-gray-800 mb-6"
-              >
-                Agenda
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl text-gray-600 max-w-3xl mx-auto"
-              >
-                Confira a programação completa dos três dias de evento com
-                palestras, workshops e atividades práticas.
-              </motion.p>
-            </div>
-
-            <div className="space-y-8">
-              {schedule.map((day, dayIndex) => (
-                <motion.div
-                  key={dayIndex}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: dayIndex * 0.1 }}
-                  className="bg-gray-50 rounded-xl p-8"
-                >
-                  <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                    {day.day}
-                  </h3>
-                  <div className="space-y-4">
-                    {day.events.map((event, eventIndex) => (
-                      <motion.div
-                        key={eventIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: eventIndex * 0.05 }}
-                        className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-4">
-                            <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                              {event.time}
-                            </div>
-                            <div>
-                              <h4 className="font-bold text-gray-800">
-                                {event.title}
-                              </h4>
-                              {event.speaker && (
-                                <p className="text-gray-600 text-sm">
-                                  {event.speaker}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                          <ChevronDown className="text-gray-400" size={20} />
-                        </div>
-                      </motion.div>
-                    ))}
                   </div>
                 </motion.div>
               ))}
@@ -1029,14 +956,6 @@ export function HomeSection() {
                     className="hover:text-white transition-colors"
                   >
                     Palestrantes
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("schedule")}
-                    className="hover:text-white transition-colors"
-                  >
-                    Agenda
                   </button>
                 </li>
                 <li>

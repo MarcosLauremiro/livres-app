@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "react-toastify";
+require("dotenv").config();
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -33,14 +35,18 @@ export default function RegisterPage() {
     }));
   };
 
+  const apiUrl = process.env.NEXT_PUBLIC_APIURL;
+  console.log("url", apiUrl);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const response = await axios.post("http://localhost:3000/register", form);
+    
 
-      // Redireciona para página de sucesso
+    try {
+      const response = await axios.post(`${apiUrl}/register`, form);
+      toast.success("Cadastro realizado com sucesso!");
       router.push(
         `/confirmation?status=success&message=${encodeURIComponent(
           response.data.message || "Cadastro realizado com sucesso!"
@@ -54,8 +60,7 @@ export default function RegisterPage() {
       } else if (error.message) {
         errorMessage = error.message;
       }
-
-      // Redireciona para página de erro
+      toast.error("Erro ao realizar o cadastro: " + errorMessage);
       router.push(
         `/confirmation?status=error&message=${encodeURIComponent(errorMessage)}`
       );
