@@ -36,13 +36,9 @@ export default function RegisterPage() {
   };
 
   const apiUrl = process.env.NEXT_PUBLIC_APIURL;
-  console.log("url", apiUrl);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
-    
 
     try {
       const response = await axios.post(`${apiUrl}/register`, form);
@@ -235,8 +231,10 @@ export default function RegisterPage() {
                     className="w-5 h-5 text-orange-500 border-2 border-gray-300 rounded focus:ring-orange-500 focus:ring-2"
                   />
                   <span className="ml-3 text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
-                    Hospedagem só para quem não mora em Imperatriz. Precisa de
-                    hospedagem?
+                    Precisa de hospedagem?
+                    {
+                      "(Exclusivo para participantes de fora de Imperatriz. Alimentação não inclusa.)"
+                    }
                   </span>
                 </label>
 
