@@ -52,7 +52,6 @@ export default function RegisterPage() {
         type === "checkbox" ? (target as HTMLInputElement).checked : value,
     }));
 
-    // Se o email foi alterado, limpar o estado de usuário existente
     if (name === "email" && existingUser) {
       setExistingUser(null);
       setShowExistingUser(false);
@@ -61,7 +60,6 @@ export default function RegisterPage() {
 
   const apiUrl = process.env.NEXT_PUBLIC_APIURL;
 
-  // Função para verificar se o email já existe
   const checkEmailExists = async (email: string) => {
     if (!email || !email.includes("@")) return;
 
@@ -86,7 +84,6 @@ export default function RegisterPage() {
     }
   };
 
-  // Função para verificar email quando o usuário sair do campo
   const handleEmailBlur = () => {
     if (form.email) {
       checkEmailExists(form.email);
@@ -96,7 +93,6 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Se já existe um usuário com esse email, não permitir cadastro
     if (existingUser) {
       toast.error("Este email já está cadastrado!");
       return;
@@ -152,7 +148,6 @@ export default function RegisterPage() {
     }
   };
 
-  // Se está mostrando usuário existente, renderizar a tela de informações
   if (showExistingUser && existingUser) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-500 to-red-500 py-12 px-4 sm:px-6 lg:px-8">
