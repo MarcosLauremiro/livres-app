@@ -113,6 +113,15 @@ function ConfirmationContent() {
                     <br />
                     📧 Você receberá mais informações em breve.
                   </p>
+                  <p>
+                    Siga a gente no Instagram{" "}
+                    <a
+                      href="https://www.instagram.com/juvlivres/"
+                      className="text-orange-500"
+                    >
+                      @juvlivres
+                    </a>
+                  </p>
                 </div>
               )}
             </div>

@@ -278,13 +278,6 @@ export default function RegisterPage() {
                 {/* Botões de ação */}
                 <div className="flex flex-col space-y-3">
                   <button
-                    onClick={handleEditExistingUser}
-                    className="w-full py-3 px-6 rounded-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-200 transform hover:scale-105"
-                  >
-                    Editar Informações
-                  </button>
-
-                  <button
                     onClick={() => {
                       setShowExistingUser(false);
                       setExistingUser(null);
