@@ -97,43 +97,43 @@ export function HomeSection() {
 
   const speakers = [
     {
-      name: "Dr. Ana Silva",
-      role: "Psicóloga e Coach de Carreira",
+      name: "Pr. Carlos Alberto",
+      role: "Pastor da PIB de Senador Lá Roque",
       topic: "Descobrindo Sua Identidade Profissional",
-      image: "/api/placeholder/300/300",
-      bio: "Especialista em desenvolvimento pessoal com mais de 15 anos de experiência.",
+      image:
+        "https://res.cloudinary.com/dtm6iibm2/image/upload/v1750512171/pr_carlos_h6idda.jpg",
     },
     {
-      name: "Prof. Carlos Santos",
-      role: "Filósofo e Escritor",
+      name: "Pr. Bruno Ernandes",
+      role: "Pastor de jovens da PIB de imperatriz",
       topic: "O Propósito da Vida na Era Digital",
-      image: "/api/placeholder/300/300",
-      bio: "Autor de 5 livros sobre filosofia moderna e propósito de vida.",
+      image:
+        "https://res.cloudinary.com/dtm6iibm2/image/upload/v1750512172/WhatsApp_Image_2025-06-18_at_11.23.20_qcibai.jpg",
     },
     {
-      name: "Mariana Costa",
-      role: "Empreendedora Social",
+      name: "Pr. Carlos Pontes",
+      role: "Pastor da IB Porta Formosa",
       topic: "Transformando Paixão em Missão",
-      image: "/api/placeholder/300/300",
-      bio: "Fundadora de 3 ONGs e palestrante internacional sobre impacto social.",
+      image:
+        "https://res.cloudinary.com/dtm6iibm2/image/upload/v1750512172/WhatsApp_Image_2025-06-18_at_13.29.17_bnjeir.jpg",
     },
   ];
 
   const testimonials = [
     {
-      name: "João Pedro",
+      name: "João Victor",
       role: "Estudante de Engenharia",
-      text: "A Livres Conference mudou completamente minha perspectiva sobre o futuro. Descobri minha verdadeira paixão!",
+      text: "A Livres Conference mudou completamente minha perspectiva sobre o futuro. Descobri minha verdadeira paixão! Cristo!!",
       rating: 5,
     },
     {
-      name: "Maria Fernanda",
+      name: "Maria",
       role: "Designer",
       text: "Três dias que transformaram minha vida. As conexões que fiz aqui são para toda a vida.",
       rating: 5,
     },
     {
-      name: "Lucas Oliveira",
+      name: "Lucas",
       role: "Desenvolvedor",
       text: "Nunca imaginei que um evento pudesse ter tanto impacto. Recomendo para todos os jovens!",
       rating: 5,
@@ -606,7 +606,6 @@ export function HomeSection() {
         </section>
       </FadeInSection>
 
-      {/* Speakers Section */}
       <FadeInSection>
         <section id="speakers" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
@@ -642,7 +641,11 @@ export function HomeSection() {
                   className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <div className="h-64 bg-gradient-to-br from-orange-400 to-red-400 relative">
-                    <div className="absolute inset-0 bg-black/20" />
+                    <img
+                      src={speaker.image}
+                      alt={speaker.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
                     <div className="absolute bottom-4 left-4 text-white">
                       <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
                         <Users className="text-white" size={24} />
@@ -659,7 +662,6 @@ export function HomeSection() {
                     <p className="text-gray-600 mb-4 font-medium">
                       {speaker.topic}
                     </p>
-                    <p className="text-gray-500 text-sm">{speaker.bio}</p>
                   </div>
                 </motion.div>
               ))}
@@ -802,13 +804,13 @@ export function HomeSection() {
                 {
                   icon: Phone,
                   title: "WhatsApp",
-                  content: "(99) 99999-9999",
+                  content: "(99) 98147-5680",
                   description: "Atendimento de 9h às 18h",
                 },
                 {
                   icon: Instagram,
                   title: "Redes Sociais",
-                  content: "@livresconference",
+                  content: "@juvlivres",
                   description: "Siga para updates do evento",
                 },
               ].map((contact, index) => (
@@ -837,7 +839,6 @@ export function HomeSection() {
         </section>
       </FadeInSection>
 
-      {/* Location Section */}
       <FadeInSection>
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
