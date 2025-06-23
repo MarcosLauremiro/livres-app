@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Button } from "../ui/button";
-import { Card, CardContent } from "../ui/card.jsx";
 import {
   MapPin,
   Calendar,
@@ -12,21 +11,16 @@ import {
   Phone,
   Instagram,
   Facebook,
-  ChevronDown,
   Star,
   Quote,
-  CheckCircle,
   ArrowRight,
   Mic,
   Coffee,
   Network,
   Target,
-  Heart,
-  Lightbulb,
 } from "lucide-react";
-import { Badge } from "../ui/badge";
 import Link from "next/link";
-import { toast } from "react-toastify";
+import banner from "../../../public/CONFERENCELIVRES2025.png";
 
 const FadeInSection = ({
   children,
@@ -217,7 +211,6 @@ export function HomeSection() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
       <motion.header
         style={{ opacity: headerOpacity }}
         className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm border-b"
@@ -328,96 +321,25 @@ export function HomeSection() {
 
       <section
         id="home"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url('${banner.src}')` }}
       >
-        <motion.div
-          style={{ y: heroY }}
-          className="absolute inset-0 bg-gradient-to-br from-orange-600 via-orange-500 to-red-600"
-        >
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-20 w-32 h-32 bg-white rounded-full animate-pulse" />
-            <div className="absolute top-40 right-32 w-24 h-24 bg-white rounded-full animate-pulse delay-1000" />
-            <div className="absolute bottom-32 left-1/3 w-16 h-16 bg-white rounded-full animate-pulse delay-2000" />
-          </div>
-        </motion.div>
-
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl">
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl flex flex-col justify-end items-center h-full pb-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <Badge
-              variant="secondary"
-              className="bg-white/20 text-white border-white/30 mb-6"
-            >
-              2025 • AGOSTO
-            </Badge>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl md:text-8xl font-bold mb-6"
-          >
-            <span className="block">LIVRES</span>
-            <span className="block text-orange-300 drop-shadow-lg">
-              CONFERENCE
-            </span>
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-8"
-          >
-            <p className="text-2xl md:text-3xl mb-2 font-light">
-              15 À 17 DE AGOSTO
-            </p>
-            <p className="text-xl md:text-2xl text-orange-200 font-medium">
-              IDENTIDADE E MISSÃO
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="space-y-4"
+            className=""
           >
             <Button
               size="lg"
               className="bg-white/20 hover:bg-white/30 text-white border-white/30 px-8 py-4 text-lg font-medium"
             >
               <Link href={"/register"}>Inscreva-se Agora</Link>
-
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-white/70 rounded-full mt-2"
-            />
-          </motion.div>
-        </motion.div>
       </section>
 
       {/* Stats Section */}
