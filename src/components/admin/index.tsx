@@ -46,6 +46,7 @@ export default function ComponentAdmin() {
     try {
       const response = await axios.get(`${apiUrl}/register`);
       setUsers(response.data);
+      setFilteredUsers(response.data);
       setLoading(false);
     } catch (error: any) {
       setLoading(false);
